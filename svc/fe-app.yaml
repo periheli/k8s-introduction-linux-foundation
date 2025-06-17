@@ -9,13 +9,13 @@ spec:
   selector:
     matchLabels:
       app: frontend
-    template:
-      metadata:
-        labels:
-          app: frontend
-      spec:
-        containers:
-        - image: frontend-application
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - image: frontend-application
         name: frontend-application
         ports:
         - containerPort: 5000
