@@ -50,3 +50,12 @@ kubectl rollout history ds fluentd-agent
 kubectl set image ds fluentd-agent fluentd=quay.io/fluentd_elasticsearch/fluentd:v4.6.2
 kubectl annotate ds fluentd-agent kubernetes.io/change-cause="image updated to 4.6.2" --overwrite=true
 kubectl get all -l k8s-app=fluentd-agent -o wide
+
+# Check image availability
+kubectl run hello-world -ti --rm --image=registry.k8s.io/busybox:latest \
+--restart=Never -- date Fri Feb 31 07:07:07 UTC 2023
+
+# Preload image into Minikube
+docker pull alpine
+minikube image load alpine:latest
+minikube cache list

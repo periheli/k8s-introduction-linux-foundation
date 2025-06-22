@@ -22,3 +22,7 @@ kubectl get all -l app=webserver
 # Access the service
 minikube service web-service
 kubectl port-forward service/web-service 8080:80
+# Probe
+kubectl apply -f def-manifest/test-probe.yaml
+kubectl get po liveness-exec -w
+kubectl describe po liveness-exec
