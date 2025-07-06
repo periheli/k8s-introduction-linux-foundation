@@ -19,3 +19,14 @@ minikube service green-web --url
 (minikube service green-web --url &) | \
 xargs -I {} bash -c 'echo "URL: {}" >&2 && curl -s {}/' | \
 head -n 5
+
+kubectl create secret generic my-password \
+--from-literal=password=mysql_password
+kubectl get secret my-password
+kubectl describe secret my-password
+echo mysql_password | base64
+
+kubectl apply -f def-manifest/mypass.yaml
+
+kubectl create secret generic my-file-password \
+--from-file=def-manifest/mypass.txt

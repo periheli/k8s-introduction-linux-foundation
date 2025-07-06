@@ -2,6 +2,7 @@ minikube start --driver=docker -n 3
 minikube start
 minikube profile list
 minikube stop
+minikube start --nodes=5 --driver=docker
 
 
 kubectl proxy
