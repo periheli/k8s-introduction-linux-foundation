@@ -1,0 +1,4 @@
+black[jupyter]
+flake8
+isort
+apache-airflow[celery]==3.0.2
