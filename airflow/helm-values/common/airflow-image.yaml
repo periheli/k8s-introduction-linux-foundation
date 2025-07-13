@@ -1,0 +1,7 @@
+images:
+  airflow:
+    repository: wiuy3120/my-airflow
+    pullPolicy: IfNotPresent
+    tag: latest
+  # tag: 0.0 # dev
+  # tag: 0.0.1 # prod

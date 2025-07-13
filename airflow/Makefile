@@ -1,4 +1,5 @@
 include ./colors.mk
+include ./build.mk
 
 .ONESHELL:
 SHELL = /bin/bash
@@ -86,3 +87,9 @@ get_pod_events:
 	@read -p "Enter the pod name to fetch events: " POD_NAME; \
 	# kubectl describe pod $$POD_NAME --namespace ${SERVICE_NAME}
 	kubectl get events --field-selector involvedObject.kind=Pod,involvedObject.name=$$POD_NAME
+
+get_pod_shell:
+	@echo "Opening shell in Airflow pod ..."
+	@kubectl get pods --namespace ${SERVICE_NAME}
+	@read -p "Enter the pod name to open shell: " POD_NAME; \
+	kubectl exec -it $$POD_NAME --namespace ${SERVICE_NAME} -- /bin/bash
